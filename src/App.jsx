@@ -8,8 +8,8 @@ import FeedPage from '@/pages/FeedPage'
 import RankingsPage from '@/pages/RankingsPage'
 
 // Lazy pages — agregar a medida que se desarrollen
-// import TrainPage from '@/pages/TrainPage'
-// import HistoryPage from '@/pages/HistoryPage'
+import TrainPage from '@/pages/TrainPage'
+import HistoryPage from '@/pages/HistoryPage'
 import ProfilePage from '@/pages/ProfilePage'
 
 // Placeholder para páginas en desarrollo
@@ -48,8 +48,8 @@ export default function App() {
 
           <Route path="/feed" element={<PrivateRoute><FeedPage /></PrivateRoute>} />
           <Route path="/rankings" element={<PrivateRoute><RankingsPage /></PrivateRoute>} />
-          <Route path="/train" element={<PrivateRoute><ComingSoon title="Planificador" /></PrivateRoute>} />
-          <Route path="/history" element={<PrivateRoute><ComingSoon title="Historial" /></PrivateRoute>} />
+            <Route path="/train" element={<PrivateRoute><TrainPage /></PrivateRoute>} />
+             <Route path="/history" element={<PrivateRoute><HistoryPage /></PrivateRoute>} />
           <Route path="/profile" element={<PrivateRoute><ProfilePage /></PrivateRoute>} />
 
           <Route path="/" element={<Navigate to="/feed" replace />} />
