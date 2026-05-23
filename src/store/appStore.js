@@ -86,15 +86,19 @@ export const useAppStore = create((set, get) => ({
 
   fetchRankings: async (country = null) => {
     set({ rankingsLoading: true })
-    let query = supabase
-      .from('global_rankings')
-      .select('*')
-      .limit(50)
+    try {
+      let query = supabase
+        .from('global_rankings')
+        .select('*')
+        .limit(50)
 
-    if (country) query = query.eq('country', country)
+      if (country) query = query.eq('country', country)
 
-    const { data } = await query
-    set({ rankings: data || [], rankingsLoading: false })
+      const { data } = await query
+      set({ rankings: data || [] })
+    } finally {
+      set({ rankingsLoading: false })
+    }
   },
 
   // --- KUDOS ---
