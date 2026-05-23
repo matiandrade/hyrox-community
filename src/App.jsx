@@ -11,6 +11,7 @@ import RankingsPage from '@/pages/RankingsPage'
 import TrainPage from '@/pages/TrainPage'
 import HistoryPage from '@/pages/HistoryPage'
 import ProfilePage from '@/pages/ProfilePage'
+import OutdoorPage from '@/pages/OutdoorPage'
 
 // Placeholder para páginas en desarrollo
 function ComingSoon({ title }) {
@@ -51,6 +52,7 @@ export default function App() {
             <Route path="/train" element={<PrivateRoute><TrainPage /></PrivateRoute>} />
              <Route path="/history" element={<PrivateRoute><HistoryPage /></PrivateRoute>} />
           <Route path="/profile" element={<PrivateRoute><ProfilePage /></PrivateRoute>} />
+          <Route path="/outdoor" element={<PrivateRoute><OutdoorPage /></PrivateRoute>} />
 
           <Route path="/" element={<Navigate to="/feed" replace />} />
           <Route path="*" element={<Navigate to="/feed" replace />} />
