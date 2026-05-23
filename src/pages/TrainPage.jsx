@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '@/store/authStore'
 import { useAppStore } from '@/store/appStore'
 import { Card, Button, SectionHeader, EmptyState, useToast } from '@/components/ui'
+import RunTracker from './RunTracker'
 
 // ============================================
 // DATA — mismo contenido que el HTML original
@@ -291,6 +292,7 @@ export default function TrainPage() {
           { id: 'planificador', label: '📋 Planificador' },
           { id: 'ejercicios',   label: '💪 Ejercicios' },
           { id: 'presets',      label: '⚡ Presets' },
+          { id: 'run',          label: '🏃 Run' },
         ].map(tab => (
           <button key={tab.id} onClick={() => setActiveTab(tab.id)} style={{
             padding: '8px 18px', borderRadius: '8px', border: 'none', cursor: 'pointer',
@@ -515,6 +517,9 @@ export default function TrainPage() {
           </div>
         </div>
       )}
+
+      {/* ======================== RUN TRACKER ======================== */}
+      {activeTab === 'run' && <RunTracker />}
 
       {/* ======================== MODAL DETALLE ======================== */}
       {detailModal && (
